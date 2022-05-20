@@ -1,0 +1,37 @@
+<form [formGroup]="role">
+
+    <p>Role ID: {{ role.value.role_id }}</p>
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="Nome da Entidade" formControlName="role_desc">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Entities</mat-label>
+        <mat-select formControlName="entity_id">
+          <mat-option *ngFor="let e of (entities$ | async)" [value]="e.entity_id">{{ e.entity_name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Apps</mat-label>
+        <mat-select formControlName="app_id">
+          <mat-option *ngFor="let a of (apps$ | async )" [value]="a.app_id">{{ a.app_name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Scopes" formControlName="scopes">
+    </mat-form-field>
+    <mat-checkbox formControlName="master">Master</mat-checkbox>
+
+
+    <button mat-raised-button color="primary" (click)="save(role.value)">
+        <mat-icon>save</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn" (click)="router.navigate(['/roles'])">
+        <mat-icon>cancel</mat-icon>
+    </button>
+
+    <button mat-raised-button color="accent" (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+    </button>
+</form> 

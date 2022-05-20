@@ -1,0 +1,38 @@
+<form>
+
+    <button (click)="createAssignment(id, assignment)">
+        <mat-icon>add</mat-icon>
+    </button>
+</form>
+
+<form [formGroup]="assignment_">
+    <mat-form-field>
+        <input matInput type="text" placeholder="Organization" formControlName="organization">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" placeholder="Organization ID" formControlName="organization_id">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" placeholder="Usuario" formControlName="user_id">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" placeholder="Role" formControlName="role_id">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" placeholder="Assign ID" formControlName="assign_id">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="date" placeholder="Start" formControlName="starts_at">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="date" placeholder="Expires" formControlName="expires_at">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="date" placeholder="Revoked" formControlName="revoked_at">
+    </mat-form-field>
+
+    <!-- <button mat-raised-button color="primary" (click)="save(organization.value, assignment_.value)">
+        <mat-icon>save</mat-icon>
+    </button> -->
+
+</form>

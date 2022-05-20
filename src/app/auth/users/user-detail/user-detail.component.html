@@ -1,0 +1,44 @@
+<form [formGroup]="user_">
+
+    <p> User ID: {{ user?.user_id }}</p>
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="Usuario" formControlName="user_name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="email" placeholder="Email" formControlName="user_email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Pass" formControlName="user_pass">
+    </mat-form-field>
+    <mat-checkbox formControlName="active">Active</mat-checkbox>
+
+
+    <button mat-raised-button color="primary" (click)="save(user_.value)">
+        <mat-icon>save</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn" (click)="router.navigate(['/users'])">
+        <mat-icon>cancel</mat-icon>
+    </button>
+
+    <button mat-raised-button color="accent" (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+    </button>
+</form>
+
+<span>Antes</span>
+<div >
+    <span>dentro</span>
+    <input #endpoint type="text" placeholder="">
+    <button (click)="createEndpoint(endpoint.value)">
+        <mat-icon>add</mat-icon>
+    </button>
+
+    <div *ngFor="let ep of user?.endpoints" class="container">
+        <span>{{ ep.endpoint }}</span>
+        <button (click)="deleteEndpoint(ep)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>

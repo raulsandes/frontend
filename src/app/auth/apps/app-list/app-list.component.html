@@ -1,0 +1,10 @@
+<button (click)="createApp()">
+    <mat-icon>add</mat-icon>
+</button>
+
+<div *ngFor="let app of (apps$ | async)" class="container">
+    <a [routerLink]="[app.app_id]"> {{app.app_name}} </a>
+    <button (click)="deleteApp(app)">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>

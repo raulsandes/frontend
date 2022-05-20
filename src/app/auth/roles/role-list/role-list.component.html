@@ -1,0 +1,10 @@
+<button (click)="createRole()">
+    <mat-icon>add</mat-icon>
+</button>
+
+<div *ngFor="let role of (roles$ | async)" class="container">
+    <a [routerLink]="[role.role_id]"> {{role.role_desc}} </a>
+    <button (click)="deleteRole(role)">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>

@@ -1,0 +1,20 @@
+<form [formGroup]="entity">
+
+    <p>Entity ID: {{ entity.value.entity_id }}</p>
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="Nome da Entidade" formControlName="entity_name">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="save(entity.value)">
+        <mat-icon>save</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn" (click)="router.navigate(['/entities'])">
+        <mat-icon>cancel</mat-icon>
+    </button>
+
+    <button mat-raised-button color="accent" (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+    </button>
+</form> 

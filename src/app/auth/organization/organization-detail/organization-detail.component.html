@@ -1,0 +1,20 @@
+<form [formGroup]="organization">
+
+    <p>Organization ID: {{ organization.value.organization_id }}</p>
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="Nome da Entidade" formControlName="organization_name">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="save(organization.value)">
+        <mat-icon>save</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn" (click)="router.navigate(['/organizations'])">
+        <mat-icon>cancel</mat-icon>
+    </button>
+
+    <button mat-raised-button color="accent" (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+    </button>
+</form> 

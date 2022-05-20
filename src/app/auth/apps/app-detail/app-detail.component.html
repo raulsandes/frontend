@@ -1,0 +1,20 @@
+<form [formGroup]="app">
+
+    <p>App ID: {{ app.value.app_id }}</p>
+
+    <mat-form-field>
+        <input matInput type="text" placeholder="Nome da Entidade" formControlName="app_name">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="save(app.value)">
+        <mat-icon>save</mat-icon>
+    </button>
+
+    <button mat-raised-button color="warn" (click)="router.navigate(['/apps'])">
+        <mat-icon>cancel</mat-icon>
+    </button>
+
+    <button mat-raised-button color="accent" (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+    </button>
+</form> 

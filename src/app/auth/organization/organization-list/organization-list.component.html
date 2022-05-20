@@ -1,0 +1,10 @@
+<button (click)="createOrganization()">
+    <mat-icon>add</mat-icon>
+</button>
+
+<div *ngFor="let organization of (organizations$ | async)" class="container">
+    <a [routerLink]="[organization.organization_id]"> {{organization.organization_name}} </a>
+    <button (click)="deleteOrganization(organization)">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>
