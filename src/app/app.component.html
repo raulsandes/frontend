@@ -1,1 +1,19 @@
+<h1>Port Insight Admin Panel</h1>
+
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened class="drawer">Drawer content
+        <mat-card>
+            <p><a routerLink="/">Home</a></p>
+            <p><a routerLink="/entities">Entities</a></p>
+            <p><a routerLink="/roles">Roles</a></p>
+            <p><a routerLink="/organizations">Organizations</a></p>
+            <p><a routerLink="/users">users</a></p>
+            <p><a routerLink="/licenses">licenses</a></p>
+            <p><a routerLink="/apps">Apps</a></p>        
+        </mat-card>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet> 
+    </mat-drawer-content>
+</mat-drawer-container>
 
