@@ -32,7 +32,7 @@ export class OrganizationDetailComponent implements OnInit {
     user_id: ['', Validators.required],
     starts_at: ['', Validators.required],
     revoked_at: ['', Validators.required],
-    expired_at: ['', Validators.required],
+    expires_at: ['', Validators.required],
   });
 
   constructor(private auth: AuthAPIService,
@@ -43,8 +43,20 @@ export class OrganizationDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params as OrganizationId;
+      
+      this.assign.setValue({
+        organization_id: this.id.organization_id,
+        role_id: '',
+        user_id: '',
+        starts_at: new Date(),
+        revoked_at: new Date(),
+        expires_at:  new Date(),
+
+      });
+
       this.organization$ = this.auth.getOrganization(this.id);
        this.refresh();
+       this.refreshAss();
     });
   }
 
@@ -59,7 +71,11 @@ export class OrganizationDetailComponent implements OnInit {
   //   ///////////////////////////////////////////////////////////////////////////
   //   ///////////////////////////////////////////////////////////////////////////        
     save(e: Organization): void {
-      this.auth.updateOrganization(e)
+      const id = this.id;
+      const data = {...this.id, ...e };
+      console.log({ e, id, data });
+
+      this.auth.createOrganization(data)
         .subscribe(() => this.router.navigate(['/organizations']));
     }
 

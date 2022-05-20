@@ -31,6 +31,9 @@ export interface Assignment extends UserId, RoleId, OrganizationId {
     starts_at?: Date;
     expires_at: Date;
     revoked_at: Date;
+
+    user_name: string;
+    role_desc: string;
 };
 
 export interface User extends UserId, UserData {

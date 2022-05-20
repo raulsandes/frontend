@@ -215,6 +215,7 @@ export class AuthAPIService {
     }
 
     createAssignment(assignment: Assignment): Observable<Assignment> {
+        console.log({ assignment });
         return this.http.post<Assignment>(`${baseURL}/organizations/${assignment.organization_id}/assignments`, assignment)
     }
 

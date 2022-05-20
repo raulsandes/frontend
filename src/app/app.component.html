@@ -2,15 +2,44 @@
 
 <mat-drawer-container class="example-container">
     <mat-drawer mode="side" opened class="drawer">Drawer content
-        <mat-card>
-            <p><a routerLink="/">Home</a></p>
+
+        <mat-nav-list id="menu">
+            <h3 matSubheader><span>Home</span></h3>
+            <a mat-list-item routerLink="/">
+                <mat-icon class="menu-icon">home</mat-icon>Apps
+            </a>
+
+
+            <h3 matSubheader><span>Porto</span></h3>
+            
+            <h3 matSubheader><span>Organização</span></h3>
+            <a mat-list-item routerLink="/apps">
+                <mat-icon class="menu-icon">apps</mat-icon>Apps
+            </a>
+            <a mat-list-item routerLink="/users">
+                <mat-icon class="menu-icon">person</mat-icon>Usuários
+            </a>
+            <a mat-list-item routerLink="/organizations">
+                <mat-icon class="menu-icon">alarm_add</mat-icon>Organizações
+            </a>
+            <a mat-list-item routerLink="/entities">
+                <mat-icon class="menu-icon">alarm_add</mat-icon>Entidades
+            </a>
+            <a mat-list-item routerLink="/roles">
+                <mat-icon class="menu-icon">badge</mat-icon>Papéis
+            </a>
+
+
+
+        </mat-nav-list>
+        <!-- <mat-card>
+            <p><a >Home</a></p>
+            <p><a routerLink="/apps"></a></p>        
             <p><a routerLink="/entities">Entities</a></p>
             <p><a routerLink="/roles">Roles</a></p>
             <p><a routerLink="/organizations">Organizations</a></p>
             <p><a routerLink="/users">users</a></p>
-            <p><a routerLink="/licenses">licenses</a></p>
-            <p><a routerLink="/apps">Apps</a></p>        
-        </mat-card>
+        </mat-card> -->
     </mat-drawer>
     <mat-drawer-content>
         <router-outlet></router-outlet> 
