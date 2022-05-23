@@ -214,19 +214,20 @@ export class AuthAPIService {
             .pipe(tap(() => this.refreshEntities()));
     }
 
-    createAssignment(organization: OrganizationId, assignment: Assignment): Observable<Assignment> {
-        return this.http.post<Assignment>(`${baseURL}/organizations/${organization.organization_id}/assignments`, assignment)
+    createAssignment(assignment: Assignment): Observable<Assignment> {
+        console.log({ assignment });
+        return this.http.post<Assignment>(`${baseURL}/organizations/${assignment.organization_id}/assignments`, assignment)
     }
 
-    deleteAssignment(organization: OrganizationId, id: Assignment): Observable<Assignment> {
-        return this.http.delete<Assignment>(`${baseURL}/organizations/${organization.organization_id}/assignments/${id.assign_id}`)
+    deleteAssignment(id: Assignment): Observable<Assignment> {
+        return this.http.delete<Assignment>(`${baseURL}/organizations/${id.organization_id}/assignments/${id.assign_id}`)
     }
 
     listAssignment(organization: OrganizationId): Observable<Assignment[]> {
         return this.http.get<Assignment[]>(`${baseURL}/organizations/${organization.organization_id}/assignments`);
     }
 
-    updateAssignment(organization: Organization, assignment: Assignment): Observable<Assignment> {
-        return this.http.patch<Assignment>(`${baseURL}/organizations/${organization.organization_id}/assignments/${assignment.assign_id}`, assignment)
+    updateAssignment(assignment: Assignment): Observable<Assignment> {
+        return this.http.patch<Assignment>(`${baseURL}/organizations/${assignment.organization_id}/assignments/${assignment.assign_id}`, assignment)
     }
 }
